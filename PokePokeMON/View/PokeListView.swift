@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PokeListView.swift
 //  PokePokeMON
 //
 //  Created by carlos.gonzalezc on 6/8/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PokeListView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    PokeListView()
 }
