@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PokeListView: View {
+    
+    @State var allowedNumber: Bool = false
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -15,7 +18,16 @@ struct PokeListView: View {
                 .foregroundStyle(.tint)
             Text("Hello, world!")
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.main.opacity(0.7))
+        .overlay {
+            CardEnterView(
+                sendAction: {  },
+                numberOfPokemons: "",
+                isAllowed: allowedNumber,
+                isVisible: true
+            )
+        }
     }
 }
 

@@ -1,7 +1,36 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Enter number" : {
 
+    },
+    "Enter the number of pokemons you want to see this time" : {
+
+    },
+    "Hello, world!" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Maximum number allowed 1302" : {
+
+    },
+    "PokePokeMON" : {
+
+    },
+    "Send" : {
+
+    },
+    "The number entered is greater than 150" : {
+
+    },
+    "Welcome to your new Pokedex" : {
+
+    },
+    "You can find the best information about your favorite Pokemons" : {
+
+    }
   },
   "version" : "1.0"
 }
