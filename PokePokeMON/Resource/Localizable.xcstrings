@@ -4,16 +4,22 @@
     "Enter number" : {
 
     },
-    "Enter the number of pokemons you want to see this time" : {
-
-    },
     "Hello, world!" : {
 
     },
     "Hello, World!" : {
 
     },
+    "Here, you can find the best information about your favorite Pokemons." : {
+
+    },
     "Maximum number allowed 1302" : {
+
+    },
+    "Network not available" : {
+
+    },
+    "Please, enter the number of pokemons you want to see this time:" : {
 
     },
     "PokePokeMON" : {
@@ -25,10 +31,10 @@
     "The number entered is greater than 150" : {
 
     },
-    "Welcome to your new Pokedex" : {
+    "There's no internet connection at this moment. This app needs connection in order to work properly. Come back when you have internet again." : {
 
     },
-    "You can find the best information about your favorite Pokemons" : {
+    "Welcome to your new Pokedex" : {
 
     }
   },
