@@ -9,28 +9,25 @@ import SwiftUI
 
 struct PokeListView: View {
     
-    @State var allowedNumber: Bool = false
+    let pokeList: [PokemonsModel]
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.main.opacity(0.7))
-        .overlay {
-            CardEnterView(
-                sendAction: {  },
-                numberOfPokemons: "",
-                isAllowed: allowedNumber,
-                isVisible: true
-            )
+        NavigationStack {
+            LazyVStack() {
+                ForEach(pokeList, id: \.self) { pokemon in
+                    NavigationLink(value: pokemon) {
+                        PokemonCardListView(name: pokemon.name, image: pokemon.image)
+                    }
+                }
+            }
+            .navigationTitle("Pokedex")
+            .navigationDestination(for: PokemonsModel.self) { pokemon in
+                PokeDetailView(detailModel: PokemonDetailModel.testModel)
+            }
         }
     }
 }
 
 #Preview {
-    PokeListView()
+    PokeListView(pokeList: [PokemonsModel.testModel])
 }

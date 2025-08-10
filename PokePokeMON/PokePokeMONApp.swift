@@ -14,7 +14,7 @@ struct PokePokeMONApp: App {
     
     var body: some Scene {
         WindowGroup {
-            PokeListView()
+            PokeTabView()
                 .overlay {
                     if scenePhase != .active {
                         SplashView()

@@ -13,7 +13,6 @@ struct CardEnterView: View {
     
     @State var numberOfPokemons: String
     @State var isAllowed: Bool
-    @State var isVisible: Bool = true
     
     @State private var rotationAngle: Double = 0
     
@@ -69,8 +68,9 @@ struct CardEnterView: View {
                             .padding(.leading, 3)
                     }
                     
+                    
                     Button {
-                        isVisible.toggle()
+                        sendAction()
                     } label: {
                         Text("Send")
                             .font(.body)
@@ -84,14 +84,9 @@ struct CardEnterView: View {
             }
             .padding(.horizontal, 30)
         }
-        .rotationEffect(.degrees(rotationAngle))
-        .onAppear {
-            withAnimation(.easeInOut(duration: 2.5)) {
-                rotationAngle = 360
-            }
-        }
-        .opacity(isVisible ? 1.0 : 0.0)
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.second.opacity(0.5))
     }
 }
 

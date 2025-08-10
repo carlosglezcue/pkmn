@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct PokeDetailView: View {
+    
+    let detailModel: PokemonDetailModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: .zero) {
+            PokemonDetailHeaderView(detailModel: detailModel)
+            PokemonFormDetailView(detailModel: detailModel)
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    PokeDetailView()
+    PokeDetailView(detailModel: PokemonDetailModel.testModel)
 }
