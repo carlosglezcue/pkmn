@@ -9,30 +9,54 @@ import SwiftUI
 
 struct PokeTabView: View {
     
-    @State var isStarting: Bool = true
+    @State var viewModel = PokeListViewModel()
     
     var body: some View {
         
         TabView {
-            PokeListView(pokeList: [PokemonsModel.testModel])
+            PokeListView(pokeList: viewModel.pokemonsList)
                 .tabItem {
                     Label("List", systemImage: "list.bullet")
                         .foregroundStyle(.black)
                 }
             
-            PokeGridView(pokeList: [PokemonsModel.testModel])
+            PokeGridView(pokeList: viewModel.pokemonsList)
                 .tabItem {
                     Label("Grid", systemImage: "circle.grid.2x2")
                 }
         }
         .tint(.black)
         .navigationBarBackButtonHidden(true)
-        .fullScreenCover(isPresented: $isStarting) {
+        .fullScreenCover(isPresented: $viewModel.isStarting) {
             CardEnterView(
-                sendAction: { isStarting.toggle() },
-                numberOfPokemons: "",
-                isAllowed: false
+                sendAction: {
+                    Task {await viewModel.getPokemonsList(items: Int(viewModel.itemsToShow) ?? .zero)}
+                    viewModel.isStarting.toggle()
+                },
+                numberOfPokemons: $viewModel.itemsToShow,
+                isAllowed: $viewModel.isAllowed
             )
+        }
+        .overlay {
+            LoadingView()
+                .opacity(viewModel.isLoading ? 1 : 0)
+        }
+        .alert("Alert!",
+               isPresented: $viewModel.showAlert) {
+            Button(role: .cancel) {
+                viewModel.isStarting.toggle()
+            } label: {
+                Text("Cancel")
+            }
+            Button {
+                Task {
+                    await viewModel.getPokemonsList(items: Int(viewModel.itemsToShow) ?? .zero)
+                }
+            } label: {
+                Text("Retry again")
+            }
+        } message: {
+            Text(viewModel.errorMessage)
         }
     }
 }

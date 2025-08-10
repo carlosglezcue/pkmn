@@ -15,11 +15,11 @@ struct PokeGridView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: adaptative, spacing: 20) {
                     ForEach(pokeList, id: \.self) { pokemon in
                         NavigationLink(value: pokemon) {
-                            PokemonCardGridView(name: pokemon.name, image: pokemon.image)
+                            PokemonCardGridView(name: pokemon.name.capitalized, image: pokemon.image)
                         }
                         .buttonStyle(.plain)
                     }
@@ -27,8 +27,8 @@ struct PokeGridView: View {
             }
             .safeAreaPadding()
             .navigationTitle("Pokedex")
-            .navigationDestination(for: PokemonsModel.self) { pokemon in
-                PokeDetailView(detailModel: PokemonDetailModel.testModel)
+            .navigationDestination(for: PokemonsModel.self) { item in
+                PokeDetailView(viewModel: PokeDetailViewModel(itemId: item.url.lastPathNumber ?? .zero))
             }
         }
     }

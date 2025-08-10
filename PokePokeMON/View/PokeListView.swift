@@ -13,16 +13,18 @@ struct PokeListView: View {
     
     var body: some View {
         NavigationStack {
-            LazyVStack() {
-                ForEach(pokeList, id: \.self) { pokemon in
-                    NavigationLink(value: pokemon) {
-                        PokemonCardListView(name: pokemon.name, image: pokemon.image)
+            ScrollView(showsIndicators: false) {
+                LazyVStack() {
+                    ForEach(pokeList, id: \.self) { pokemon in
+                        NavigationLink(value: pokemon) {
+                            PokemonCardListView(name: pokemon.name.capitalized, image: pokemon.image)
+                        }
                     }
                 }
             }
             .navigationTitle("Pokedex")
-            .navigationDestination(for: PokemonsModel.self) { pokemon in
-                PokeDetailView(detailModel: PokemonDetailModel.testModel)
+            .navigationDestination(for: PokemonsModel.self) { item in
+                PokeDetailView(viewModel: PokeDetailViewModel(itemId: item.url.lastPathNumber ?? .zero))
             }
         }
     }

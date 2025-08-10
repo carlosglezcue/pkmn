@@ -19,7 +19,7 @@ extension URL {
     
     static func getItems(limit: Int) -> URL {
         ApiConstants.api.appending(path: "pokemon")
-            .appending(path: "\(limit)")
+            .appending(queryItems: [.setLimitItems(for: limit)])
     }
     
     static func getPokemonDetail(id: Int) -> URL {
@@ -33,8 +33,8 @@ extension URL {
     }
 }
 
-//extension URLQueryItem {
-//    static func setLimitItems(for limit: Int) -> URLQueryItem {
-//        URLQueryItem(name: "limit", value: "\(limit)")
-//    }
-//}
+extension URLQueryItem {
+    static func setLimitItems(for limit: Int) -> URLQueryItem {
+        URLQueryItem(name: "limit", value: "\(limit)")
+    }
+}

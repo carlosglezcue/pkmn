@@ -17,7 +17,6 @@ struct Network: DataInteractor, NetworkInteractor {
     
     func getList(items: Int) async throws -> [PokemonsModel] {
         let newListRequest = try await getJSON(request: .get(url: .getItems(limit: items) ), type: PokemonsList.self).results
-        
         return getPokemonList(pokemons: newListRequest)
     }
     
@@ -41,9 +40,8 @@ extension Network {
     
     func getPokemonDetails(details: PokemonDetails, species: PokemonSpecies) -> PokemonDetailModel {
         let types = details.types.map(\.type.name)
-        let abilities = details.abilities.map(\.ability.name)
         let moves = details.moves.map(\.move.name)
-        let power = details.stats.map(\.effort)
+        let power = details.stats.map(\.baseStat)
         let stats = details.stats.map(\.stat.name)
         
         return PokemonDetailModel(
@@ -59,7 +57,6 @@ extension Network {
             hasGenderDifferences: species.hasGenderDifferences,
             captureRate: species.captureDifficulty,
             types: types,
-            abilities: abilities,
             moves: moves,
             power: power,
             stats: stats,

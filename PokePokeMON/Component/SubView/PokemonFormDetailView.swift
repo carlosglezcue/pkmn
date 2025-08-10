@@ -25,32 +25,6 @@ struct PokemonFormDetailView: View {
             
             Section {
                 DisclosureGroup {
-                    ForEach(detailModel.moves, id: \.self) { move in
-                        Text(move.capitalized)
-                            .font(.caption)
-                            .foregroundStyle(.mainText)
-                    }
-                } label: {
-                    Text("Moves")
-                        .font(.body)
-                        .bold()
-                        .foregroundStyle(.second)
-                }
-                
-                DisclosureGroup {
-                    ForEach(detailModel.abilities, id: \.self) { abilitie in
-                        Text(abilitie.capitalized)
-                            .font(.caption)
-                            .foregroundStyle(.mainText)
-                    }
-                } label: {
-                    Text("Abilities")
-                        .font(.body)
-                        .bold()
-                        .foregroundStyle(.second)
-                }
-                
-                DisclosureGroup {
                     ForEach(Array(zip(detailModel.stats, detailModel.power)), id: \.0) { name, point in
                         LabeledContent("\(name.uppercased()):", value: "\(point) pt")
                             .font(.caption)
@@ -58,6 +32,19 @@ struct PokemonFormDetailView: View {
                     }
                 } label: {
                     Text("Stats")
+                        .font(.body)
+                        .bold()
+                        .foregroundStyle(.second)
+                }
+                
+                DisclosureGroup {
+                    ForEach(detailModel.moves, id: \.self) { move in
+                        Text(move.capitalized)
+                            .font(.caption)
+                            .foregroundStyle(.mainText)
+                    }
+                } label: {
+                    Text("Moves")
                         .font(.body)
                         .bold()
                         .foregroundStyle(.second)

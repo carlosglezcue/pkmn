@@ -11,10 +11,8 @@ struct CardEnterView: View {
     
     let sendAction: () -> ()
     
-    @State var numberOfPokemons: String
-    @State var isAllowed: Bool
-    
-    @State private var rotationAngle: Double = 0
+    @Binding var numberOfPokemons: String
+    @Binding var isAllowed: Bool
     
     var body: some View {
         
@@ -93,7 +91,7 @@ struct CardEnterView: View {
 #Preview {
     CardEnterView(
         sendAction: { },
-        numberOfPokemons: "",
-        isAllowed: false
+        numberOfPokemons: .constant(""),
+        isAllowed: .constant(false)
     )
 }
