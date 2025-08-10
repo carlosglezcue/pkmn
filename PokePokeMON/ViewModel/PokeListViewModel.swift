@@ -16,7 +16,7 @@ final class PokeListViewModel {
     var errorMessage: String = ""
     var showAlert: Bool = false
     var isLoading: Bool = false
-    var isAllowed: Bool = false
+    var isAllowed: Bool = true
     var isStarting: Bool = true
     var pokemonsList: [PokemonsModel] = []
     
@@ -45,5 +45,12 @@ final class PokeListViewModel {
     
     @MainActor func loadData(list: [PokemonsModel]) async {
         pokemonsList = list
+    }
+    
+    func checkNumberAdded(item: Int) {
+        let noItems = 0
+        let maximumItems = 1302
+        
+        isAllowed = item > noItems && item <= maximumItems
     }
 }
