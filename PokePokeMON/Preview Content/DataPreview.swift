@@ -20,7 +20,7 @@ extension PokemonDetailModel {
         id: 1,
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
         name: "Bulbasur",
-        description: "BULBASAUR can be seen napping in\nbright sunlight.\nThere is a seed on its back.\nBy soaking up the sun’s rays, the seed\ngrows progressively larger.",
+        description: "BULBASAUR can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger.",
         baseExperience: 64,
         weight: 69,
         isBaby: true,
