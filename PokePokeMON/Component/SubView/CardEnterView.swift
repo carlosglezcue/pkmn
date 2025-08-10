@@ -52,8 +52,8 @@ struct CardEnterView: View {
                             .textFieldStyle(.roundedBorder)
                             .font(.body)
                         
-                        if isAllowed {
-                            Text("The number entered is greater than 150")
+                        if !isAllowed {
+                            Text("The number entered is greater than 1302")
                                 .font(.caption2)
                                 .foregroundStyle(.third)
                                 .padding(.leading, 3)
@@ -85,6 +85,7 @@ struct CardEnterView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.second.opacity(0.5))
+        .dismissKeyboardOnTapGesture()
     }
 }
 

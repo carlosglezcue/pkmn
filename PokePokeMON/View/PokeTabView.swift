@@ -30,8 +30,11 @@ struct PokeTabView: View {
         .fullScreenCover(isPresented: $viewModel.isStarting) {
             CardEnterView(
                 sendAction: {
-                    Task {await viewModel.getPokemonsList(items: Int(viewModel.itemsToShow) ?? .zero)}
-                    viewModel.isStarting.toggle()
+                    viewModel.checkNumberAdded(item: Int(viewModel.itemsToShow) ?? .zero)
+                    if viewModel.isAllowed {
+                        Task {await viewModel.getPokemonsList(items: Int(viewModel.itemsToShow) ?? .zero)}
+                        viewModel.isStarting.toggle()
+                    }
                 },
                 numberOfPokemons: $viewModel.itemsToShow,
                 isAllowed: $viewModel.isAllowed
