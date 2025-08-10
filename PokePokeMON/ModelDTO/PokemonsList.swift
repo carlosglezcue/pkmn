@@ -8,8 +8,8 @@
 import Foundation
 
 struct PokemonsList: Codable {
-    let count: Int
-    let next: String
+    let count: Int?
+    let next: String?
     let previous: String?
     let results: [Pokemons]
 }
@@ -24,7 +24,8 @@ extension Pokemons {
         PokemonsModel(
             id: UUID(),
             name: name,
-            image: ApiConstants.getImageUrl(id: url.lastPathNumber ?? .zero)
+            image: ApiConstants.getImageUrl(id: url.lastPathNumber ?? .zero),
+            url: url
         )
     }
 }

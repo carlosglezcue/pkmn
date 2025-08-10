@@ -30,8 +30,7 @@ struct PokemonDetailHeaderView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .layoutPriority(1)
                 .foregroundColor(.mainText)
-                .padding()
-                
+                .padding(.vertical)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.main.opacity(0.8))

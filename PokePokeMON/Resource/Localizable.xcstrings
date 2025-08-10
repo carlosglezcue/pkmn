@@ -1,19 +1,50 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@:" : {
+
+    },
+    "%lld. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld. %2$@"
+          }
+        }
+      }
+    },
+    "Alert!" : {
+
+    },
+    "Base experience:" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Capture rate:" : {
+
+    },
     "Enter number" : {
 
     },
-    "Hello, world!" : {
+    "Grid" : {
 
     },
-    "Hello, World!" : {
+    "Growth rate:" : {
 
     },
     "Here, you can find the best information about your favorite Pokemons." : {
 
     },
+    "List" : {
+
+    },
     "Maximum number allowed 1302" : {
+
+    },
+    "Moves" : {
 
     },
     "Network not available" : {
@@ -22,16 +53,34 @@
     "Please, enter the number of pokemons you want to see this time:" : {
 
     },
+    "Pokedex" : {
+
+    },
+    "Pokemon Legendary:" : {
+
+    },
     "PokePokeMON" : {
 
     },
+    "Retry again" : {
+
+    },
     "Send" : {
+
+    },
+    "Stats" : {
 
     },
     "The number entered is greater than 150" : {
 
     },
     "There's no internet connection at this moment. This app needs connection in order to work properly. Come back when you have internet again." : {
+
+    },
+    "Type:" : {
+
+    },
+    "Weight:" : {
 
     },
     "Welcome to your new Pokedex" : {

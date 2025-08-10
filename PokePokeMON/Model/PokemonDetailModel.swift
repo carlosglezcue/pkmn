@@ -20,7 +20,6 @@ struct PokemonDetailModel: Identifiable, Hashable {
     let hasGenderDifferences: Bool
     let captureRate: String
     let types: [String]
-    let abilities: [String]
     let moves: [String]
     let power: [Int]
     let stats: [String]

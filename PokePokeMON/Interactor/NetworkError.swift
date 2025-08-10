@@ -17,15 +17,15 @@ public enum NetworkError: LocalizedError {
     public var errorDescription: String? {
         switch self {
             case .general(let error):
-                "Error general: \(error.localizedDescription)"
+                "General Error: \(error.localizedDescription)"
             case .status(let int):
-                "Error de status: \(int)."
+                "Status Error: \(int)."
             case .json(let error):
-                "Error de JSON: \(error)."
+                "JSON Error: \(error)."
             case .dataNotValid:
-                "Error, dato no válido."
+                "Error, data not valid."
             case .nonHTTP:
-                "No es una conexión HTTP."
+                "It's not an HTTP connection."
         }
     }
 }
