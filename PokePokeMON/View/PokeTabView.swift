@@ -14,19 +14,20 @@ struct PokeTabView: View {
     var body: some View {
         
         TabView {
-            PokeListView(pokeList: viewModel.pokemonsList)
+            PokeListView(pokeList: viewModel.pokemonListSearched)
                 .tabItem {
                     Label("List", systemImage: "list.bullet")
                         .foregroundStyle(.black)
                 }
             
-            PokeGridView(pokeList: viewModel.pokemonsList)
+            PokeGridView(pokeList: viewModel.pokemonListSearched)
                 .tabItem {
                     Label("Grid", systemImage: "circle.grid.2x2")
                 }
         }
         .tint(.black)
         .navigationBarBackButtonHidden(true)
+        .searchable(text: $viewModel.search, prompt: Text("Search Pokemon"))
         .fullScreenCover(isPresented: $viewModel.isStarting) {
             CardEnterView(
                 sendAction: {

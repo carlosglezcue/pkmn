@@ -14,11 +14,22 @@ final class PokeListViewModel {
     
     var itemsToShow: String = ""
     var errorMessage: String = ""
+    var search = ""
     var showAlert: Bool = false
     var isLoading: Bool = false
     var isAllowed: Bool = true
     var isStarting: Bool = true
     var pokemonsList: [PokemonsModel] = []
+    var pokemonListSearched: [PokemonsModel] {
+        let searchFilter = pokemonsList.filter { pokemon in
+            if search.isEmpty {
+                true
+            } else {
+                pokemon.name.localizedStandardContains(search)
+            }
+        }
+        return searchFilter
+    }
     
     let interactor: DataInteractor
     
