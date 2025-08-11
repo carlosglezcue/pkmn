@@ -53,7 +53,7 @@ struct CardEnterView: View {
                             .font(.body)
                         
                         if !isAllowed {
-                            Text("The number entered is greater than 1302")
+                            Text("Please enter a valid number")
                                 .font(.caption2)
                                 .foregroundStyle(.third)
                                 .padding(.leading, 3)

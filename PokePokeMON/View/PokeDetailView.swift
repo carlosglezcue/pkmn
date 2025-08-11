@@ -16,10 +16,8 @@ struct PokeDetailView: View {
     var body: some View {
         VStack(spacing: .zero) {
             if let details = viewModel.details {
-                ScrollView(showsIndicators: false) {
-                    PokemonDetailHeaderView(detailModel: details)
-                    PokemonFormDetailView(detailModel: details)
-                }
+                PokemonDetailHeaderView(detailModel: details)
+                PokemonFormDetailView(detailModel: details)
             } else {
                 ErrorDetailView(errorMessage: viewModel.errorMessage)
             }
@@ -51,6 +49,7 @@ struct PokeDetailView: View {
                 await viewModel.getPokemonsDetails(id: viewModel.itemId)
             }
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
